@@ -1,0 +1,27 @@
+{% load static %}
+
+{% block body %}
+{% include 'navigation.html' %}
+
+<div class="container-fluid col-md-4 border mt-3 shadow p-5">
+
+    <h5 style="color: orangered; background-color: palegoldenrod; height: 50px; padding-top: 10px;" class="text-center">Job Details</h5>
+<p>Job Title : <b>{{job.title}}</b></p>
+<p>Company Name : <b>{{job.company.company}}</p></b>
+<p>Job Type : <b>{{job.type}}</p></b>
+<p>Salary : <b>{{job.salary}}</p></b>
+<p>Description : <b>{{job.desc}}</p></b>
+<p>DeadLine : <b>{{job.deadline}}</b></p>
+<a href="{% url 'applicant' job.id %}" class="btn btn-success btn-sm mb-3">Apply</a>
+</div>
+
+
+<div class="my-4">
+
+    {% include 'footer.html' %}
+    </div>
+    
+    
+    
+    
+    {% endblock body %}

@@ -1,0 +1,44 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'admin_navigation.html' %}
+
+
+    <table id="example" class="table table-hover display container mt-5" >
+        <thead>
+            <tr style="background-color: orangered; color: white;">
+                <th>S.No</th>
+                <th>Full Name</th>
+                <th>Email ID</th>
+                <th>Contact</th>
+                <th>Image</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in d %}
+           
+            <tr>
+               
+                <td>{{forloop.counter}}</td>
+                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                <td>{{i.user.username}}</td>
+                <td>{{i.mobile}}</td>
+                <td><img src="{{i.image.url}}"></td>
+                <td>{{i.gender}}</td>
+                <td><a href="{% url 'delete_user' i.id %}" class="btn btn-danger" onclick="return confirm('Are You Sure?)">Delete</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+<div class="my-4">
+    {% include 'footer.html' %}
+  </div>
+
+{% endblock body %}

@@ -1,0 +1,45 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<div class="col-sm-6 offset-sm-3 mt-5">
+   
+<form method="POST" class="shadow p-5">
+    {% csrf_token %}
+    <div class="mb-3" style="height: 70px; background-color: #EEE8AA;;">
+    <h1 class="text-center" style=" padding-top: 10px;color: orangered;">Login as Job Seeker</h1>
+</div>
+    <lable>Email</lable>
+    <input name="email" class="form-control" placeholder="Enter Email" type="email">
+    <br>
+    <lable>Password</lable>
+    <input name="password" class="form-control" placeholder="Enter Password" type="password">
+
+    <div class="mt-5 login">
+    <input type="submit" class="btn btn-danger" value="Login" style="background-color: orangered;">
+    <a href="{% url 'user_signup' %}">&nbsp;&nbsp; Create an Account</a>
+</div>
+</form>
+</div>
+<div class="my-4">
+    {% include 'footer.html' %}
+
+
+    {% ifequal error "no" %}
+    <script>
+        alert("Login Successfully")
+        window.location=('{% url 'user_home' %}')
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+    <script>
+        alert("Something went wrong ! ")
+       
+    </script>
+    {% endifequal %}
+  </div>
+
+{% endblock body %}

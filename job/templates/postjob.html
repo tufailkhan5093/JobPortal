@@ -1,0 +1,65 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'user_navigation.html' %}
+
+<div class="col-sm-6 offset-sm-3 mt-5">
+   
+<form method="POST" class="shadow p-5">
+    {% csrf_token %}
+    <div class="mb-3" style="height: 70px; background-color: #EEE8AA;;">
+    <h1 class="text-center" style=" padding-top: 10px;color: orangered;">New Job</h1>
+</div>
+    <lable>Job Title</lable>
+    <input name="jobtitle" class="form-control" placeholder="Enter Job Title" type="text">
+    <br>
+
+    <label>Job Type</label><br>
+
+            <div class="form-control">
+                <div class="custom-control custom-radio custom-control-inline">
+
+
+                    <input type="radio" id="customradioinline1" name="type" value="Part Time" class="custom-control-input">
+                    <label class="custom-control-label" for="customradioinline1">Part Time</label>
+
+
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+
+
+                    <input type="radio" id="customradioinline2" name="type" value="Full Time"
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="customradioinline2">Full Time</label>
+
+
+                </div>
+            </div>
+
+            <lable>Description</lable>
+            <input name="desc" class="form-control" placeholder="Description" type="text">
+
+    <lable>Salary</lable>
+    <input name="salary" class="form-control" placeholder="Salary" type="number">
+
+    <lable>Location</lable>
+    <input name="location" class="form-control" placeholder="Location" type="text">
+
+    <lable>Deadline</lable>
+    <input name="deadline" class="form-control" placeholder="Deadline" type="datetime-local">
+
+    <div class="mt-5 login">
+    <input type="submit" class="btn btn-danger" value="Post Job" style="background-color: orangered;">
+   
+</div>
+</form>
+</div>
+<div class="my-4">
+    {% include 'footer.html' %}
+  </div>
+
+ 
+
+{% endblock body %}

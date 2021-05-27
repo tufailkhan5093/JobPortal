@@ -1,0 +1,147 @@
+{% load static %}
+
+{% block body %}
+<script>
+    function chechpass(){
+        if(document.signup.password.value!=document.signup.cpassword.value)
+        {
+            alert("Password doesnot match ! ");
+            document.signup.cpassword.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+{% include 'navigation.html' %}
+
+<form class="container mt-4 shadow p-5" onsubmit="return chechpass();" name="signup" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3" style="height: 70px; background-color: #EEE8AA;;">
+        <h1 class="text-center" style=" padding-top: 10px;color: orangered;">User Signup</h1>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" placeholder="First name" name="fname" class="form-control">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" name="lname" class="form-control">
+
+
+
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Contact</label>
+            <input type="text" placeholder="Enter Contact Num" name="contact" class="form-control">
+        </div>
+
+
+
+
+
+    </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email</label>
+            <input type="text" placeholder="Enter Email Address" name="email" class="form-control" required>
+        </div>
+
+
+
+
+
+    </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="text" placeholder="Password" name="password" class="form-control" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Confirm Password</label>
+            <input type="text" placeholder="Confirm Password" name="cpassword" class="form-control" required>
+
+
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Gender</label><br>
+
+            <div class="form-control">
+                <div class="custom-control custom-radio custom-control-inline">
+
+
+                    <input type="radio" id="customradioinline1" name="gender" value="Male" class="custom-control-input">
+                    <label class="custom-control-label" for="customradioinline1">Male</label>
+
+
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+
+
+                    <input type="radio" id="customradioinline2" name="gender" value="Female"
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="customradioinline2">Female</label>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Image : </label>
+            <input type="file" name="image" class="form-control">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>User Type : </label>
+            <input type="text" name="type" class="form-control" placeholder="Student or Recruiter">
+        </div>
+
+
+
+
+    </div>
+
+
+
+    </div>
+
+    <input type="submit" class="btn btn-success " value="Submit" style="background-color: orangered;border: 0px;">
+</form>
+<div class="my-4">
+    {% include 'footer.html' %}
+
+    {% ifequal error "no" %}
+    <script>
+        alert("Signup Successfully")
+        window.location=('{% url 'admin_login' %}')
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+    <script>
+        alert("Something went wrong ! ")
+       
+    </script>
+    {% endifequal %}
+</div>
+
+{% endblock body %}

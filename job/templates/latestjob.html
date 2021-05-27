@@ -1,0 +1,49 @@
+{% load static %}
+
+{% block body %}
+{% include 'user_navigation.html' %}
+
+
+    <h4 class="text-center" style=" padding-top: 10px;color: orangered;">Latest Jobs</h4>
+
+
+<table class="table table-hover container shadow p-5 col-md-7">
+    
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Job Type</th>
+          
+            <th>Date Posted</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{job.title}}</td>
+            <td>{{user.company}}</td>
+            <td>{{job.type}}</td>
+           
+            <td>{{job.date_posted}}</td>
+           <td>
+                <a href="{% url 'jobdetail' job.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="my-4">
+
+{% include 'footer.html' %}
+</div>
+
+
+
+
+{% endblock body %}

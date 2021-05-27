@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <title>Job Portal</title>
+</head>
+<body> 
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-sm-3">
+                <img src="{% static 'images/logo.jpg' %}" style="width: 200px;">
+            </div>
+
+            <div class="col-sm-6 mt-5 text-center">
+                <span style="font-weight: bold; font-size: 30px;" class="ml-3" >
+                    <span style="color:orangered" >Online Job</span>
+                    <span style="color: #696969">Portal System</span>
+                </span>
+            </div>
+
+            <div class="col-sm-3 mt-5">
+                <span style="font-weight: bold; font-size: 30px;padding-left: 25%;">
+                    
+                    <span><i class="fab fa-facebook"></i></i></span>
+                    <span><i class="fab fa-twitter"></i></span>
+                    <span><i class="fab fa-instagram"></i></span>
+                    <span><i class="fab fa-linkedin"></i></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+<div class="container-fluid">
+<nav class=" navbar navbar-expand-sm navigation mx-5" style="background-color: #EEE8AA;">
+    <a href="" class="navbar-brand  font-weight-bold" style="color: #FF4500;margin-left: 25%;">Job Portal</a>
+
+    <ul class="navbar-nav">
+       
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'latestjobs' %}">Jobs List</a>
+
+        </li>
+
+       
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'post_job' %}">Post New Job</a>
+
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'appdetail' %}">Applicants</a>
+
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Change Password</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+
+        </li>
+
+
+        <li class="nav-item ml-5">
+            <a class="nav-link text-capitalize" href="{% url 'index' %}"><i class="fa fa-user" aria-hidden="true"></i> {{request.user.first_name}} {{request.user.last_name}}</a>
+
+        </li>
+
+       
+       
+    </ul>
+</nav>
+</div>
+
+
+
+
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+    
+</body>
+</html>

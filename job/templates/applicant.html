@@ -1,0 +1,41 @@
+{% load static %}
+
+{% block body %}
+
+
+{% include 'navigation.html' %}
+
+
+
+<div class="col-sm-6 offset-sm-3 mt-5">
+   
+    <form method="POST" class="shadow p-5">
+        {% csrf_token %}
+        <div class="mb-3" style="height: 70px; background-color: #EEE8AA;;">
+        <h1 class="text-center" style=" padding-top: 10px;color: orangered;">Apply for Job</h1>
+    </div>
+       
+        <lable>Skills</lable>
+        <input name="skills" class="form-control" placeholder="Enter Skills" type="text">
+
+        <br>
+        <lable>City</lable>
+        <input name="city" class="form-control" placeholder="Enter City" type="text">
+
+        <br>
+        <lable>Contact No: </lable>
+        <input name="mobile" class="form-control" placeholder="Enter Contact No" type="number">
+    
+        <div class="mt-5 login">
+        <input type="submit" class="btn btn-danger" value="Apply" style="background-color: orangered;">
+        
+    </div>
+    </form>
+    </div>
+
+
+    <div class="my-4">
+        {% include 'footer.html' %}
+        </div>
+
+{% endblock body %}

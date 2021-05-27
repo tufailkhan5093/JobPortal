@@ -1,0 +1,31 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<div class="container-fluid row">
+
+{% for app in applicants %}
+
+<div class="col-md-3 border container-fluid mt-4">
+    <button type="button" class="btn btn-success btn-sm row justify-content-center">
+        Applicant No: <span class="badge badge-danger ml-2">{{forloop.counter}}</span>
+       
+      </button>
+      <br>
+      <br>
+    <span>Applicant Name : </span><b class="float-right">{{app.name.user.first_name}} {{app.name.user.last_name}}</b>
+    <br>
+    <span>Skills : </span><b class="float-right">{{app.skills}}</b>
+
+    <br>
+    <span>Location : </span><b class="float-right">{{app.city}}</b>
+
+    <br>
+    <span>Contact : </span><b class="float-right">{{app.mobile}}</b>
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock body %}
